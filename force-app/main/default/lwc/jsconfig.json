@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/contact-account-wizard": [
+                "ContactAccountWizard/ContactAccountWizard.js"
+            ],
+            "c/contact-details": [
+                "ContactDetails/ContactDetails.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ]
+}

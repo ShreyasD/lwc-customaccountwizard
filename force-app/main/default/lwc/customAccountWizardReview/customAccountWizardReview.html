@@ -1,0 +1,43 @@
+<template>
+    <lightning-messages></lightning-messages>
+    <lightning-layout horizontal-align="center" class="slds-grid slds-wrap">
+        <lightning-card title="Account Details" icon-name="action:new_account" class="slds-size_1-of-2"> 
+                <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Name">Name:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.Name}>{account.fields.Name}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Billing Street">Billing Street:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.BillingStreet}>{account.fields.BillingStreet}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Billing Zip/Postal Code">Billing Zip/Postal Code:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.BillingPostalCode}>{account.fields.BillingPostalCode}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Billing State/Province">Billing State/Province:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.BillingState}>{account.fields.BillingState}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Billing Country">Billing Country:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.BillingCountry}>{account.fields.BillingCountry}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Phone">Phone:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.Phone}>{account.fields.Phone}</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Website">Website:</dt>
+                    <dd class="slds-item_detail slds-truncate" title={account.fields.Website}>{account.fields.Website}</dd>
+                </dl>
+            </lightning-card>
+        <lightning-card title="Contact Details" icon-name="action:new_contact" class="slds-size_1-of-2">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Name">First Name:</dt>
+            <dd class="slds-item_detail slds-truncate" title={contact.fields.FirstName}>{contact.fields.FirstName}</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Last Name">Last Name:</dt>
+            <dd class="slds-item_detail slds-truncate" title={contact.fields.LastName}>{contact.fields.LastName}</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Title">Title:</dt>
+            <dd class="slds-item_detail slds-truncate" title={contact.fields.Title}>{contact.fields.Title}</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Phone">Phone:</dt>
+            <dd class="slds-item_detail slds-truncate" title={contact.fields.Phone}>{contact.fields.Phone}</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Email">Email:</dt>
+            <dd class="slds-item_detail slds-truncate" title={contact.fields.Email}>{contact.fields.Email}</dd>
+        </lightning-card>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_large">
+        <div class="slds-m-top_medium">
+            <lightning-button variant="neutral" name="Previous" label="Previous" onclick={handlePrevious}></lightning-button>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning-button variant="brand" name="Submit" label="Submit" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-layout>
+</template>

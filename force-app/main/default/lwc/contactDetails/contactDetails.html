@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Contact Details" icon-name="action:new_contact">
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form
+                object-api-name="Contact"
+                onsubmit={handleSubmit}
+                onabort={handleAbort}>
+                <lightning-input-field field-name='Name'></lightning-input-field>
+                <lightning-input-field field-name='Title'></lightning-input-field>
+                <lightning-input-field field-name='Phone'></lightning-input-field>
+                <lightning-input-field field-name='Email'></lightning-input-field>
+                
+                <lightning-layout horizontal-align="center" class="slds-m-top_large">
+                    <div class="slds-m-top_medium">
+                        <lightning-button variant="neutral" type="text" name="Previous" label="Previous" onclick={handlePrevious}></lightning-button>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <lightning-button variant="brand" type="submit" name="Next" label="Next"></lightning-button>
+                    </div>
+                </lightning-layout>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

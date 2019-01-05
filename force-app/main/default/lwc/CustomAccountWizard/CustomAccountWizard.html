@@ -1,0 +1,113 @@
+<template>
+    <lightning-card title="Quick Account Creator" icon-name="standard:account">
+        <div class="c-container">
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <!-- Progress Bar-->
+                    <div class="slds-grid">
+                        <div class="slds-tabs--path" role="application">
+                        <ul class="slds-tabs--path__nav" role="tablist">
+                            <template id="accountDetailsSelected" if:true={showAccountDetailsForm}>
+                                <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2326" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Account"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Account Details</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="accountDetailsInComplete" if:false={showAccountDetailsForm}>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2327" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Account"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Account Details</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="contactDetailsSelected" if:true={showContactDetailsForm}>
+                                <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2328" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Contact"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Contact Details</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="contactDetailsInComplete" if:false={showContactDetailsForm}>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2329" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Contact"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Contact Details</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="reviewDetailsSelected" if:true={showReviewDetails}>
+                                <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2330" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Review"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Review</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="reviewDetailsInComplete" if:false={showReviewDetails}>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2331" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Review"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Review</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="reviewResultsSelected" if:true={showResults}>
+                                <li class="slds-tabs--path__item slds-is-current" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2332" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Results"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Result</span>
+                                </a>
+                                </li>
+                            </template>
+                            <template id="reviewResultsInComplete" if:false={showResults}>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation">
+                                <a class="slds-tabs--path__link" id="tabs-path-2333" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                    <span class="slds-tabs--path__stage">
+                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="Results"></lightning-icon>
+                                    </span>
+                                    <span class="slds-tabs--path__title">Result</span>
+                                </a>
+                                </li>
+                            </template>
+                        </ul>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        
+        <lightning-messages></lightning-messages>
+        <template id="accountDetailsDiv" if:true={showAccountDetailsForm}>
+            <c-account-details onnext={handleNext}></c-account-details>   
+        </template>
+        <template id="contactDetailsDiv" if:true={showContactDetailsForm}>
+            <c-contact-details onprevious={handlePrevious} onnext={handleNext}></c-contact-details>
+        </template>
+        <template id="reviewDiv" if:true={showReviewDetails}>
+            <c-custom-account-wizard-review onprevious={handlePrevious} onsubmit={handleNext} 
+                contact={contactDetails} account={accountDetails}></c-custom-account-wizard-review>
+        </template>
+        <template id="resultsDiv" if:true={showResults}>
+            <lightning-button label="Go to New Account" class="slds-m-around_medium" onclick={navigateToAccount}></lightning-button>
+            <lightning-button label="Go to New Contact" class="slds-m-around_medium" onclick={navigateToContact}></lightning-button>
+        </template>
+    </lightning-card>
+</template>
